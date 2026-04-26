@@ -1,0 +1,12 @@
+payload:
+  # === CUSTOM START ===
+  - DOMAIN-SUFFIX,local
+  - DOMAIN-SUFFIX,lan
+  - IP-CIDR,10.0.0.0/8,no-resolve
+  - IP-CIDR,172.16.0.0/12,no-resolve
+  - IP-CIDR,192.168.0.0/16,no-resolve
+  # === CUSTOM END ===
+
+  # === UPSTREAM START ===
+  # (managed by scripts/update.sh)
+  # === UPSTREAM END ===

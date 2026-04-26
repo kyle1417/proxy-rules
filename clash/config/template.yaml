@@ -1,0 +1,233 @@
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+external-controller: 127.0.0.1:9090
+
+dns:
+  enable: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  fallback:
+    - 8.8.8.8
+    - 1.1.1.1
+
+proxy-providers:
+  Airport1:
+    type: http
+    url: "填写你的机场订阅链接"
+    interval: 86400
+    path: ./proxies/Airport1.yaml
+    health-check:
+      enable: true
+      interval: 300
+      url: http://www.gstatic.com/generate_204
+
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - 🇭🇰 香港
+      - 🇺🇸 美国
+      - 🇯🇵 日本
+      - 🇸🇬 新加坡
+      - 🇬🇧 英国
+      - 🇩🇪 德国
+      - DIRECT
+
+  - name: ♻️ 自动选择
+    type: url-test
+    use:
+      - Airport1
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+
+  - name: 🇭🇰 香港
+    type: url-test
+    use:
+      - Airport1
+    filter: "港|HK|Hong Kong"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+
+  - name: 🇺🇸 美国
+    type: url-test
+    use:
+      - Airport1
+    filter: "美|US|United States"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+
+  - name: 🇯🇵 日本
+    type: url-test
+    use:
+      - Airport1
+    filter: "日|JP|Japan"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+
+  - name: 🇸🇬 新加坡
+    type: url-test
+    use:
+      - Airport1
+    filter: "新加坡|SG|Singapore"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+
+  - name: 🇬🇧 英国
+    type: url-test
+    use:
+      - Airport1
+    filter: "英|UK|United Kingdom"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+
+  - name: 🇩🇪 德国
+    type: url-test
+    use:
+      - Airport1
+    filter: "德|DE|Germany"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+
+  - name: 🤖 AI工具
+    type: select
+    proxies:
+      - 🇺🇸 美国
+      - 🇯🇵 日本
+      - 🚀 节点选择
+
+  - name: 🎬 流媒体
+    type: select
+    proxies:
+      - 🇺🇸 美国
+      - 🇭🇰 香港
+      - 🇯🇵 日本
+      - 🚀 节点选择
+
+  - name: 🎮 游戏
+    type: select
+    proxies:
+      - 🇯🇵 日本
+      - 🇭🇰 香港
+      - DIRECT
+      - 🚀 节点选择
+
+  - name: 👨‍💻 开发工具
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ♻️ 自动选择
+      - DIRECT
+
+  - name: 🛡️ 广告拦截
+    type: select
+    proxies:
+      - REJECT
+
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - DIRECT
+
+rule-providers:
+  ads:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/kyle1417/proxy-rules@main/clash/rules/reject/ads.yaml"
+    path: ./ruleset/ads.yaml
+    interval: 86400
+  privacy:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/kyle1417/proxy-rules@main/clash/rules/reject/privacy.yaml"
+    path: ./ruleset/privacy.yaml
+    interval: 86400
+  my-proxy:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/kyle1417/proxy-rules@main/clash/rules/custom/my-proxy.yaml"
+    path: ./ruleset/my-proxy.yaml
+    interval: 86400
+  my-direct:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/kyle1417/proxy-rules@main/clash/rules/custom/my-direct.yaml"
+    path: ./ruleset/my-direct.yaml
+    interval: 86400
+  ai:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/kyle1417/proxy-rules@main/clash/rules/proxy/ai.yaml"
+    path: ./ruleset/ai.yaml
+    interval: 86400
+  social:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/kyle1417/proxy-rules@main/clash/rules/proxy/social.yaml"
+    path: ./ruleset/social.yaml
+    interval: 86400
+  streaming:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/kyle1417/proxy-rules@main/clash/rules/proxy/streaming.yaml"
+    path: ./ruleset/streaming.yaml
+    interval: 86400
+  dev:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/kyle1417/proxy-rules@main/clash/rules/proxy/dev.yaml"
+    path: ./ruleset/dev.yaml
+    interval: 86400
+  steam:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/kyle1417/proxy-rules@main/clash/rules/game/steam.yaml"
+    path: ./ruleset/steam.yaml
+    interval: 86400
+  blizzard:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/kyle1417/proxy-rules@main/clash/rules/game/blizzard.yaml"
+    path: ./ruleset/blizzard.yaml
+    interval: 86400
+  nintendo:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/kyle1417/proxy-rules@main/clash/rules/game/nintendo.yaml"
+    path: ./ruleset/nintendo.yaml
+    interval: 86400
+  cn-domain:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/kyle1417/proxy-rules@main/clash/rules/direct/cn-domain.yaml"
+    path: ./ruleset/cn-domain.yaml
+    interval: 86400
+  cn-ip:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/kyle1417/proxy-rules@main/clash/rules/direct/cn-ip.yaml"
+    path: ./ruleset/cn-ip.yaml
+    interval: 86400
+
+rules:
+  - RULE-SET,ads,🛡️ 广告拦截
+  - RULE-SET,privacy,🛡️ 广告拦截
+  - RULE-SET,my-proxy,🚀 节点选择
+  - RULE-SET,my-direct,DIRECT
+  - RULE-SET,ai,🤖 AI工具
+  - RULE-SET,social,🚀 节点选择
+  - RULE-SET,streaming,🎬 流媒体
+  - RULE-SET,dev,👨‍💻 开发工具
+  - RULE-SET,steam,🎮 游戏
+  - RULE-SET,blizzard,🎮 游戏
+  - RULE-SET,nintendo,🎮 游戏
+  - RULE-SET,cn-domain,DIRECT
+  - RULE-SET,cn-ip,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,🐟 漏网之鱼

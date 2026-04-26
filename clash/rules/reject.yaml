@@ -1,0 +1,10 @@
+payload:
+  # === CUSTOM START ===
+  - DOMAIN-KEYWORD,ads
+  - DOMAIN-SUFFIX,doubleclick.net
+  - DOMAIN-SUFFIX,adservice.google.com
+  # === CUSTOM END ===
+
+  # === UPSTREAM START ===
+  # (managed by scripts/update.sh)
+  # === UPSTREAM END ===

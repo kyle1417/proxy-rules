@@ -1,0 +1,19 @@
+# === CUSTOM START ===
+# 示例：把你希望走代理/分流的域名写在这里
+DOMAIN-SUFFIX,example.com
+DOMAIN,api.example.com
+DOMAIN-KEYWORD,github
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,chatgpt.com
+DOMAIN-SUFFIX,oaistatic.com
+DOMAIN-SUFFIX,oaiusercontent.com
+DOMAIN-SUFFIX,anthropic.com
+DOMAIN-SUFFIX,claude.ai
+DOMAIN-SUFFIX,gemini.google.com
+DOMAIN-SUFFIX,ai.google.dev
+DOMAIN-SUFFIX,generativelanguage.googleapis.com
+# === CUSTOM END ===
+
+# === UPSTREAM START ===
+# (managed by scripts/update.sh)
+# === UPSTREAM END ===

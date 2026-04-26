@@ -1,0 +1,10 @@
+payload:
+  # === CUSTOM START ===
+  - DOMAIN-SUFFIX,example.com
+  - DOMAIN,api.example.com
+  - DOMAIN-KEYWORD,github
+  # === CUSTOM END ===
+
+  # === UPSTREAM START ===
+  # (managed by scripts/update.sh)
+  # === UPSTREAM END ===
