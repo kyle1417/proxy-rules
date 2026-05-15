@@ -55,7 +55,7 @@ merge_category() {
 
   mkdir -p "$(dirname "$surge_target")" "$(dirname "$loon_target")" "$(dirname "$clash_target")"
 
-  local tmp_list
+  local tmp_list=""
   tmp_list="$(mktemp)"
   trap 'rm -f "$tmp_list"' RETURN
 
