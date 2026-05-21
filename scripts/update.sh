@@ -55,9 +55,8 @@ merge_category() {
 
   mkdir -p "$(dirname "$surge_target")" "$(dirname "$loon_target")" "$(dirname "$clash_target")"
 
-  local tmp_list=""
+  local tmp_list
   tmp_list="$(mktemp)"
-  trap 'rm -f "$tmp_list"' RETURN
 
   {
     if [ -f "$surge_target" ]; then normalize_rule_lines < "$surge_target" || true; fi
@@ -68,6 +67,7 @@ merge_category() {
   cp "$tmp_list" "$surge_target"
   cp "$tmp_list" "$loon_target"
   write_clash_yaml_from_list "$tmp_list" "$clash_target"
+  rm -f "$tmp_list"
 }
 
 main() {
