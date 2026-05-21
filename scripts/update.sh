@@ -21,7 +21,7 @@ normalize_rule_lines() {
   sed -e 's/\r$//' \
   | grep -vE '^[[:space:]]*$' \
   | grep -vE '^[[:space:]]*#' \
-  | grep -E '^(DOMAIN-SUFFIX|DOMAIN-KEYWORD|IP-CIDR),' || true
+  | grep -E '^(DOMAIN,|DOMAIN-SUFFIX,|DOMAIN-KEYWORD,|IP-CIDR,|IP-CIDR6,|IP-ASN,)' || true
 }
 
 merge_sorted_unique() {
@@ -60,9 +60,9 @@ merge_category() {
   trap 'rm -f "$tmp_list"' RETURN
 
   {
-    [ -f "$surge_target" ] && cat "$surge_target" | normalize_rule_lines || true
-    [ -f "$custom_file" ] && cat "$custom_file" | normalize_rule_lines || true
-    cat "$upstream_file" | normalize_rule_lines
+    if [ -f "$surge_target" ]; then normalize_rule_lines < "$surge_target" || true; fi
+    if [ -f "$custom_file" ]; then normalize_rule_lines < "$custom_file" || true; fi
+    normalize_rule_lines < "$upstream_file" || true
   } | merge_sorted_unique > "$tmp_list"
 
   cp "$tmp_list" "$surge_target"
@@ -92,10 +92,12 @@ main() {
     url="${UPSTREAM_SURGE[$key]}"
     upstream_file="$TMP_DIR/${key}_upstream.list"
 
+    echo "downloading: $key"
     if ! download "$url" "$upstream_file"; then
       echo "warning: download failed: $key ($url)" >&2
       continue
     fi
+    echo "  downloaded $(wc -l < "$upstream_file") lines"
 
     case "$key" in
       ai|streaming|dev)
@@ -117,6 +119,7 @@ main() {
     esac
 
     merge_category "$key" "$subdir" "$upstream_file" "$custom_file"
+    echo "  merged: $key -> $subdir"
   done
 
   rm -rf "$TMP_DIR"
