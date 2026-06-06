@@ -1,9 +1,35 @@
-# Claude / Anthropic support rules for Surge
+# Claude / Anthropic / Claude Code support rules for Surge
 
-DOMAIN-SUFFIX,claude.ai
-DOMAIN-SUFFIX,anthropic.com
+# Exact hosts
 DOMAIN,api.anthropic.com
+DOMAIN,cdn.anthropic.com
+DOMAIN,mcp.anthropic.com
 DOMAIN,console.anthropic.com
+DOMAIN,workbench.anthropic.com
+DOMAIN,anthropic.auth0.com
+DOMAIN,statsig.anthropic.com
+DOMAIN,anthropic-com.ghost.io
+DOMAIN,anthropic.com.cdn.cloudflare.net
+DOMAIN,servd-anthropic-website.b-cdn.net
+DOMAIN,platform.claude.com
+DOMAIN,code.claude.com
+DOMAIN,downloads.claude.ai
+DOMAIN,status.claude.com
+DOMAIN,support.claude.com
+DOMAIN,claude.ai
 
+# Claude Code telemetry
+DOMAIN,browser-intake-us5-datadoghq.com
+
+# Domain suffixes
+DOMAIN-SUFFIX,anthropic.com
+DOMAIN-SUFFIX,claude.ai
+DOMAIN-SUFFIX,claude.com
+DOMAIN-SUFFIX,clau.de
+DOMAIN-SUFFIX,claudemcpclient.com
+DOMAIN-SUFFIX,claudeusercontent.com
+DOMAIN-SUFFIX,trust.anthropic.com
+
+# Keyword rules
 DOMAIN-KEYWORD,anthropic
 DOMAIN-KEYWORD,claude

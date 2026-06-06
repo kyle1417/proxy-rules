@@ -1,29 +1,46 @@
-# ChatGPT / OpenAI support rules for Surge
+# ChatGPT / OpenAI / Sora support rules for Surge
 
-DOMAIN-SUFFIX,chatgpt.com
+# Exact hosts
+DOMAIN,auth0.openai.com
+DOMAIN,pay.openai.com
+DOMAIN,platform.openai.com
+DOMAIN,api.openai.com
+DOMAIN,ab.chatgpt.com
+DOMAIN,files.oaiusercontent.com
+DOMAIN,openaiapi-site.azureedge.net
+DOMAIN,oaidalleapiprodscus.blob.core.windows.net
+
+# Domain suffixes
 DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,chatgpt.com
 DOMAIN-SUFFIX,oaistatic.com
 DOMAIN-SUFFIX,oaiusercontent.com
 DOMAIN-SUFFIX,oaicdn.com
-DOMAIN,api.openai.com
-DOMAIN,auth0.openai.com
-DOMAIN,ab.chatgpt.com
-DOMAIN,files.oaiusercontent.com
-DOMAIN,oaidalleapiprodscus.blob.core.windows.net
+DOMAIN-SUFFIX,sora.com
 
+# OpenAI support services
 DOMAIN-SUFFIX,auth0.com
+DOMAIN-SUFFIX,featuregates.org
+DOMAIN-SUFFIX,identrust.com
+DOMAIN-SUFFIX,intercom.io
+DOMAIN-SUFFIX,intercomcdn.com
+DOMAIN-SUFFIX,launchdarkly.com
+DOMAIN-SUFFIX,sentry.io
 DOMAIN-SUFFIX,segment.io
 DOMAIN-SUFFIX,stripe.com
 DOMAIN-SUFFIX,invoice.stripe.com
 DOMAIN-SUFFIX,usefathom.com
 DOMAIN-SUFFIX,storage.googleapis.com
 DOMAIN-SUFFIX,statsigapi.net
+DOMAIN,cdn.usefathom.com
 
+# Keyword rules
 DOMAIN-KEYWORD,openai
 DOMAIN-KEYWORD,datadog
 DOMAIN-KEYWORD,sentry
 DOMAIN-KEYWORD,sift
 
+# IP / ASN fallback
 IP-CIDR,160.79.104.0/21,no-resolve
 IP-CIDR6,2607:6bc0::/32,no-resolve
 IP-ASN,399358,no-resolve
