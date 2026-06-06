@@ -1,0 +1,9 @@
+# Claude / Anthropic support rules for Surge
+
+DOMAIN-SUFFIX,claude.ai
+DOMAIN-SUFFIX,anthropic.com
+DOMAIN,api.anthropic.com
+DOMAIN,console.anthropic.com
+
+DOMAIN-KEYWORD,anthropic
+DOMAIN-KEYWORD,claude
