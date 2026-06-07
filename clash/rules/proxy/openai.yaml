@@ -1,0 +1,37 @@
+payload:
+  # ChatGPT / OpenAI / Sora support rules for Clash/Mihomo
+  - DOMAIN,auth0.openai.com
+  - DOMAIN,pay.openai.com
+  - DOMAIN,platform.openai.com
+  - DOMAIN,api.openai.com
+  - DOMAIN,ab.chatgpt.com
+  - DOMAIN,files.oaiusercontent.com
+  - DOMAIN,openaiapi-site.azureedge.net
+  - DOMAIN,oaidalleapiprodscus.blob.core.windows.net
+  - DOMAIN,cdn.usefathom.com
+  - DOMAIN-SUFFIX,openai.com
+  - DOMAIN-SUFFIX,chatgpt.com
+  - DOMAIN-SUFFIX,oaistatic.com
+  - DOMAIN-SUFFIX,oaiusercontent.com
+  - DOMAIN-SUFFIX,oaicdn.com
+  - DOMAIN-SUFFIX,sora.com
+  - DOMAIN-SUFFIX,auth0.com
+  - DOMAIN-SUFFIX,featuregates.org
+  - DOMAIN-SUFFIX,identrust.com
+  - DOMAIN-SUFFIX,intercom.io
+  - DOMAIN-SUFFIX,intercomcdn.com
+  - DOMAIN-SUFFIX,launchdarkly.com
+  - DOMAIN-SUFFIX,sentry.io
+  - DOMAIN-SUFFIX,segment.io
+  - DOMAIN-SUFFIX,stripe.com
+  - DOMAIN-SUFFIX,invoice.stripe.com
+  - DOMAIN-SUFFIX,usefathom.com
+  - DOMAIN-SUFFIX,storage.googleapis.com
+  - DOMAIN-SUFFIX,statsigapi.net
+  - DOMAIN-KEYWORD,openai
+  - DOMAIN-KEYWORD,datadog
+  - DOMAIN-KEYWORD,sentry
+  - DOMAIN-KEYWORD,sift
+  - IP-CIDR,160.79.104.0/21,no-resolve
+  - IP-CIDR6,2607:6bc0::/32,no-resolve
+  - IP-ASN,399358,no-resolve
