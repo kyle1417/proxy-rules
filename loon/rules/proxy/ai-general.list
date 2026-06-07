@@ -1,0 +1,33 @@
+# General AI platforms and shared AI routing support rules for Surge
+
+# Marker / compatibility host
+DOMAIN,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe
+
+# Cloudflare / routing related
+DOMAIN,gateway.ai.cloudflare.com
+DOMAIN,challenges.cloudflare.com
+
+# General AI exact hosts
+DOMAIN,openrouter.ai
+
+# xAI / Grok
+DOMAIN-SUFFIX,x.ai
+DOMAIN-SUFFIX,grok.com
+DOMAIN-SUFFIX,g.ai
+
+# Meta / Dify / Jasper / OpenArt / Clipdrop
+DOMAIN-SUFFIX,meta.ai
+DOMAIN-SUFFIX,dify.ai
+DOMAIN-SUFFIX,jasper.ai
+DOMAIN-SUFFIX,openart.ai
+DOMAIN-SUFFIX,clipdrop.co
+
+# Aggregators / multi-model platforms
+DOMAIN-SUFFIX,perplexity.ai
+DOMAIN-SUFFIX,poe.com
+DOMAIN-SUFFIX,groq.com
+DOMAIN-SUFFIX,chat.com
+DOMAIN-SUFFIX,ai.com
+
+# Supporting AI services
+DOMAIN-SUFFIX,forefront.ai
