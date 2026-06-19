@@ -1,5 +1,13 @@
 payload:
   # ChatGPT / OpenAI / Sora support rules for Clash/Mihomo
+
+- DOMAIN-SUFFIX,oaiusercontent.com
+- DOMAIN-SUFFIX,oaistatic.com
+- DOMAIN-SUFFIX,blob.core.windows.net   # 注意这条会误伤其他 Azure 业务，按需
+- DOMAIN-SUFFIX,openai.com
+- DOMAIN-SUFFIX,chatgpt.com
+
+
   - DOMAIN,auth0.openai.com
   - DOMAIN,pay.openai.com
   - DOMAIN,platform.openai.com
